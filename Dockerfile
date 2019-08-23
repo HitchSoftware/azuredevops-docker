@@ -15,7 +15,15 @@ RUN apt-get update \
         libcurl3 \
         libicu55 \
         libunwind8 \
-        netcat
+        netcat 
+
+RUN curl https://download.docker.com/linux/static/stable/armhf/docker-19.03.1.tgz | tar xvz
+
+RUN mv docker/docker /usr/bin/docker
+
+RUN chmod +x /usr/bin/docker
+
+RUN rm -rf docker/
 
 WORKDIR /azp
 
